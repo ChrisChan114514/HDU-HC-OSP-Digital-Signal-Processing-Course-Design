@@ -1,0 +1,151 @@
+\documentclass[12pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage{HDUReport}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{float}
+\setstretch{1.5} % 设置全局行距为1.5倍
+
+\usepackage{enumitem} % 载入enumitem包以便自定义列表环境
+\setlist[itemize]{itemsep=0pt, parsep=0pt} % 设置itemize环境的项目间距和段落间距
+
+\setmainfont{Times New Roman} % 英文正文为Times New Roman
+
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{positioning, arrows.meta}
+\usetikzlibrary{calc}
+
+
+% 设置MATLAB代码样式
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{matlab}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=single,
+    language=Matlab
+}
+%封面页设置
+{   
+    %标题
+    \title{ 
+        \vspace{1cm}
+        \heiti \Huge \textbf{《数字信号处理课程设计》实验报告} \par
+        \vspace{1cm} 
+        \heiti \Large {\underline{思政报告:实验感想与课程重要性}   } 
+        \vspace{3cm}
+    
+    }
+
+    \author{
+        \vspace{0.5cm}
+        \kaishu\Large 学院\ \dlmu[9cm]{卓越学院} \\ %学院
+        \vspace{0.5cm}
+        \kaishu\Large 学号\ \dlmu[9cm]{23040447} \\ %班级
+        \vspace{0.5cm}
+        \kaishu\Large 姓名\ \dlmu[9cm]{陈文轩} \qquad  \\ %学号
+        \vspace{0.5cm}
+        \kaishu\Large 专业\ \dlmu[9cm]{智能硬件与系统(电子信息工程)} \qquad \\ %姓名 
+    }
+        
+    \date{\today} % 默认为今天的日期，可以注释掉不显示日期
+}
+%%------------------------document环境开始------------------------%%
+\begin{document}
+
+%%-----------------------封面--------------------%%
+\cover
+\thispagestyle{empty} % 首页不显示页码
+%%------------------摘要-------------%%
+%\newpage
+%\begin{abstract}
+
+
+
+
+%\end{abstract}
+
+%\thispagestyle{empty} % 首页不显示页码
+
+%%--------------------------目录页------------------------%%
+% \newpage
+% \tableofcontents
+% \thispagestyle{empty} % 目录不显示页码
+
+%%------------------------正文页从这里开始-------------------%
+\newpage
+\setcounter{page}{1} % 让页码从正文开始编号
+
+%%可选择这里也放一个标题
+%\begin{center}
+%    \title{ \Huge \textbf{{标题}}}
+%\end{center}
+\section{实验心得与课程感悟}
+
+\subsection{课程学习感受}
+
+通过完成卷积计算与FFT频谱分析这两个实验，我对数字信号处理的理论与实践有了更加深入的理解。在学习过程中，从最初对离散信号的基本概念和变换方法的模糊认识，到能够利用MATLAB实现信号的频域分析和系统响应计算，我经历了从理论到实践的完整学习过程。
+
+数字信号处理作为一门理论性与实践性并重的课程，其中的数学推导与算法实现对我提出了较大挑战。特别是在理解FFT算法的递归分解思想时，需要将抽象的数学概念与实际的计算过程相结合。而通过亲手编程实现这些算法，不仅加深了对理论的理解，也培养了解决实际问题的能力。
+
+\subsection{技术收获与体会}
+
+通过这两个实验，我获得了以下几方面的技术收获：
+
+\begin{enumerate}
+    \item \textbf{卷积运算的深入理解}：实验一使我清晰地理解了线性卷积与圆周卷积的区别与联系，特别是当圆周卷积长度N≥N₁+N₂-1时，圆周卷积与线性卷积结果相同的重要结论。这一认识对于理解离散系统的时域分析至关重要。
+    
+    \item \textbf{FFT算法的实际应用}：实验二中，通过对不同信号进行频谱分析，我掌握了FFT在频域分析中的实际应用方法。尤其是对频谱泄漏、栅栏效应等实际问题的观察，使我认识到理论分析与实际应用之间的差距。
+    
+    \item \textbf{编程能力的提升}：利用MATLAB实现各种数字信号处理算法，不仅提高了我的编程能力，也培养了我将数学模型转化为算法的能力，这对将来从事相关工作具有重要价值。
+    
+    \item \textbf{数据可视化技能}：通过频谱图、时域波形等多种方式展示信号特性，我学会了如何有效地呈现和解释实验结果，这对于科学研究和工程实践都非常重要。
+\end{enumerate}
+
+最令我印象深刻的是，当观察到FFT频谱分析中N=120与N=128采样点情况下的明显差异时，我真切地认识到信号处理中"采样长度选择"这一看似简单的问题对结果的重大影响。这种从实验中获得的直观认识，远比单纯阅读教材更加深刻和持久。
+
+\subsection{数字信号处理的实际应用价值}
+
+通过本课程的学习，我逐渐认识到数字信号处理技术在现代社会中的广泛应用和重要价值：
+
+\begin{itemize}
+    \item \textbf{通信系统}：我们日常使用的移动通信、Wi-Fi和蓝牙等无线通信技术，都大量应用了FFT进行信号调制解调和频谱分析。实验中学到的频谱分析方法，正是这些系统的基础。
+    
+    \item \textbf{音频处理}：从音乐播放器的均衡器到语音识别系统，都依赖于频谱分析和数字滤波技术。实验三中学习的FFT实现滤波的方法，正是音频处理的核心技术之一。
+    
+    \item \textbf{医学成像}：CT、MRI等医学成像技术大量应用了FFT算法进行图像重建。通过本课程，我理解了这些看似复杂的系统背后的基本原理。
+    
+    \item \textbf{智能设备}：智能手机、可穿戴设备中的传感器数据处理，如加速度计、陀螺仪数据的处理，都需要数字信号处理技术进行噪声滤除和特征提取。
+\end{itemize}
+
+这些应用让我意识到，数字信号处理不仅是一门学术课程，更是连接理论与实际应用的桥梁，它在现代信息社会中扮演着不可替代的角色。
+
+
+
+总之，数字信号处理课程的学习过程虽然充满挑战，但也带来了丰富的收获。它不仅培养了我的专业知识和技能，还开阔了我的视野，使我对信息技术的发展有了更深入的认识。我相信，这些知识和能力将在未来的学习和工作中发挥重要作用。
+
+\subsection{实验课程意见和建议}
+
+很好的课程，原本数字信号处理课程上不太懂，通过实验与老师的耐心讲解，现在熟悉一些了，对课程理解有很大的帮助。
+
+\end{document}
